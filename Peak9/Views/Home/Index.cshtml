@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <img src="~/Content/MysteryLogo.png" class="img-circle pull-left" />
+
+    <h1>Congrats! You passed the first test!</h1>
+    <h3>Ready to go on the adventure of a lifetime?</h3>
+    <p class="lead">We're an adventure travel startup and we need your skills to dominate.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        We're going to go on a bit of scavenger hunt. As we advance you'll learn more about us
+        and we'll learn more about you. Look out for the bears... they love to eat full stack developers.
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Step 01</h2>
+        <p>
+            Write an http post request to this temp url: http://adventure.gear.host/api/adventure/
+        </p>
+    </div>
+    <div class="col-md-4">
+        @using (Ajax.BeginForm("Answer", "Home", new AjaxOptions {HttpMethod="POST", InsertionMode=InsertionMode.Replace, UpdateTargetId="step3" }))
+        {
+            <h2>Step 02</h2>
+            <p>Enter the response from step 1</p>
+            @Html.TextBox("url", null, new { @class="form-control" })<br/>
+            <p><button class="btn btn-default" type="submit">Submit &raquo;</button></p>
+        }
+    </div>
+    <div class="col-md-4">
+        <h2>Step 03</h2>
+        <div id="step3">
+            <img src="~/Content/Lock-Lock-icon.png" style="width: 100px; height: 100px;"/>
+        </div>
+    </div>
+</div>
